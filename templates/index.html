@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CPS Test</title>
+  <!-- Link to external CSS file -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <!-- Main centered content container -->
+  <div class="container">
+    <!-- Main heading -->
+    <h1>CPS Test</h1>
+
+    <!-- Control buttons -->
+    <div class="buttons">
+      <button id="startBtn">Start Test</button> <!-- Starts the CPS test -->
+      <button onclick="location.href='/scoreboard'">View Scoreboard</button> <!-- Navigates to scoreboard page -->
+      <button id="resetBtn">Reset Test</button> <!-- Resets current test state -->
+    </div>
+
+    <!-- Wrapper for the clickable test button -->
+    <div id="clickAreaWrapper">
+      <!-- Initially hidden, shown once test starts -->
+      <button id="clickBtn" style="display: none;">Click Here</button>
+    </div>
+
+    <!-- Displays the countdown timer -->
+    <div id="timer" class="info"></div>
+
+    <!-- Displays the result CPS score -->
+    <div id="result" class="info"></div>
+
+    <!-- Leaderboard list for top 10 scores -->
+    <ul id="leaderboard" class="leaderboard">
+      {% for score in leaderboard %}
+        <!-- Animate leaderboard items on load -->
+        <li class="leaderboard-item" style="opacity: 0; transform: translateY(20px);">
+          {{ loop.index }}. {{ score.cps }} - {{ score.name }}
+        </li>
+      {% endfor %}
+    </ul>
+
+    <!-- Shown when user gets into the top 10 -->
+    <div id="nameInputContainer" style="display: none;">
+      <p>Congratulations! You made the top 10! Type in your name to display on the leaderboard.</p>
+      <input type="text" id="nameInput" maxlength="20"> <!-- Input field for player name -->
+      <button id="submitName">Submit</button> <!-- Submits name to update leaderboard -->
+    </div>
+  </div>
+
+  <!-- Link to external JavaScript file -->
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

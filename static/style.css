@@ -1,0 +1,85 @@
+/* Global body styles */
+body {
+  font-family: Arial, sans-serif;  /* Sets a clean, readable font */
+  background: #e0f7fa;           /* Light cyan background for freshness */
+  color: #333;         /* Dark gray text for good contrast */
+  text-align: center;    /* Center all text elements */
+  margin: 0;         /* Remove default body margin */
+  padding: 20px;     /* Add spacing around the edges */
+}
+
+/* Main container box styling */
+.container {
+  max-width: 600px;          /* Limit content width for readability */
+  margin: auto;              /* Center container horizontally */
+  background: #ffffffee;   /* Semi-transparent white background */
+  padding: 20px;        /* Internal padding */
+  border-radius: 15px;  /* Rounded corners for softer appearance */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Main heading style */
+h1 {
+  margin-bottom: 20px;  /* Space below the heading */
+}
+
+/* General button styling */
+button {
+  margin: 10px;         /* Spacing around buttons */
+  padding: 12px 20px;   /* Size of the button */
+  font-size: 16px;      /* Text size */
+  border: none;         /* Remove default borders */
+  border-radius: 10px;  /* Rounded edges */
+  background-color: #4dd0e1;  /* Bright cyan background */
+  color: white;   /* White text */
+  cursor: pointer;  /* Pointer cursor on hover */
+  transition: background-color 0.3s ease, transform 0.1s; /* Smooth hover effect */
+  box-shadow: 0 4px #00838f;   /* Shadow for button depth */
+}
+
+/* Hover effect for all buttons */
+button:hover {
+  background-color: #0097a7;  /* Darker cyan on hover */
+}
+
+/* Special styling for the main 'Click Here' test button */
+#clickBtn {
+  font-size: 24px;              /* Larger text for visibility */
+  padding: 20px 40px;           /* Extra padding for prominence */
+  border: 3px solid black;    /* Bold black border */
+  background-color: white;    /* White background for contrast */
+  color: black;               /* Black text */
+  box-shadow: 0 6px #999;     /* 3D shadow for button look */
+  transition: transform 0.1s;   /* Smooth click effect */
+}
+
+/* Visual depression effect on button press */
+#clickBtn:active {
+  transform: translateY(4px);  /* Move down slightly on click */
+  box-shadow: 0 2px #666;    /* Shallower shadow to simulate pressing */
+}
+
+/* Info text section (e.g. timer, result) */
+.info {
+  margin-top: 20px;    /* Space above info block */
+  font-size: 20px;     /* Slightly larger text */
+}
+
+/* Leaderboard styles */
+.leaderboard {
+  list-style: none;  /* Remove default bullet points */
+  padding: 0;        /* Remove default list padding */
+}
+
+/* Individual leaderboard entry */
+.leaderboard-item {
+  font-size: 18px;  /* Readable size */
+  transition: opacity 0.8s ease, transform 0.8s ease; /* For animation on page load */
+}
+
+/* Graph image (scoreboard) styling */
+.graph-img {
+  max-width: 100%;  /* Responsive width */
+  height: auto;     /* Maintain aspect ratio */
+  margin: 20px 0;   /* Space above and below the graph */
+}
