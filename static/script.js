@@ -4,6 +4,7 @@ let timer = null;        // Timer interval reference
 let startTime = null;    // Timestamp when the test starts
 let testStarted = false; // Flag to check if test is active
 let lastCPS = 0;         // Store last CPS score for name submission
+let currentScoreId = null; // Store the database ID of current score
 
 // DOM elements
 const startBtn = document.getElementById('startBtn');               // "Start Test" button
@@ -77,6 +78,9 @@ clickBtn.addEventListener('click', () => {
       })
       .then(res => res.json())
       .then(data => {
+        // Store the score ID for later name submission
+        currentScoreId = data.score_id;
+        
         // If score is in top 10, prompt for name input
         if (data.top10) {
           nameInputContainer.style.display = 'block';
@@ -94,7 +98,7 @@ submitName.addEventListener('click', () => {
   fetch('/submit_name', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ name, cps: lastCPS })
+    body: JSON.stringify({ name, score_id: currentScoreId })
   })
   .then(res => res.json())
   .then(() => {
@@ -114,5 +118,6 @@ resetBtn.addEventListener('click', () => {
   timerDisplay.textContent = '';
   nameInputContainer.style.display = 'none';
   nameInput.value = '';
+  currentScoreId = null;
   resetAnimation(); // Trigger leaderboard animation again
 });
